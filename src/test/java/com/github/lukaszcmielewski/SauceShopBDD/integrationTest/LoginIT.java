@@ -17,9 +17,27 @@ public class LoginIT extends Base {
     }
 
     @Test
-    public void loginTest() {
+    public void loginStandardUserTest() {
         gotoLoginPage();
         inventoryPage = loginPage.insertLoginData("standard_user", "secret_sauce").clickLoginButton();
         Assertions.assertTrue(inventoryPage.cartLinkIsDisplayed());
+    }
+    @Test
+    public void loginProblemUserTest() {
+        gotoLoginPage();
+        inventoryPage = loginPage.insertLoginData("problem_user", "secret_sauce").clickLoginButton();
+        Assertions.assertTrue(inventoryPage.cartLinkIsDisplayed());
+    }
+    @Test
+    public void loginVisualUserTest() {
+        gotoLoginPage();
+        inventoryPage = loginPage.insertLoginData("visual_user", "secret_sauce").clickLoginButton();
+        Assertions.assertTrue(inventoryPage.cartLinkIsDisplayed());
+    }
+    @Test
+    public void loginLockedUserTest() {
+        gotoLoginPage();
+        loginPage.insertLoginData("locked_out_user", "secret_sauce").clickLoginButton();
+        Assertions.assertTrue(loginPage.errorLabelIsDisplayed());
     }
 }

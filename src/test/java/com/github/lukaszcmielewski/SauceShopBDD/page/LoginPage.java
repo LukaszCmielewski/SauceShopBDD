@@ -12,6 +12,8 @@ public class LoginPage extends BasePage {
     @FindBy(id = "login-button")
     WebElement loginButton;
     private WebDriver driver;
+    @FindBy(css = "h3")
+    WebElement errorLabel;
 
     public LoginPage() {
 
@@ -37,5 +39,9 @@ public class LoginPage extends BasePage {
     public LoginPage getLoginPage() {
         goTo("https://www.saucedemo.com/");
         return this;
+    }
+
+    public boolean errorLabelIsDisplayed(){
+        return errorLabel.isDisplayed();
     }
 }
