@@ -4,15 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MenuPage extends BasePage{
-     public boolean chceckLeftMenu(){
-        leftMenuButton.click();
-        Assertions.assertTrue(allItemsMenu.isDisplayed());
-         Assertions.assertTrue(aboutMenu.isDisplayed());
-         Assertions.assertTrue(logoutMenu.isDisplayed());
-         Assertions.assertTrue(resetAppStateMenu.isDisplayed());
-        return true;
-    }
+public class MenuPage extends BasePage {
     @FindBy(id = "react-burger-menu-btn")
     WebElement leftMenuButton;
     @FindBy(linkText = "All Items")
@@ -23,27 +15,32 @@ public class MenuPage extends BasePage{
     WebElement logoutMenu;
     @FindBy(id = "reset_sidebar_link")
     WebElement resetAppStateMenu;
-
     @FindBy(css = "div.app_logo")
     WebElement appLogo;
     @FindBy(css = "a.shopping_cart_link")
     WebElement cartLink;
-
     @FindBy(css = "span.title")
     WebElement titleText;
-
     @FindBy(linkText = "Twitter")
     WebElement twitterLink;
     @FindBy(linkText = "Facebook")
     WebElement facebookLink;
     @FindBy(linkText = "LinkedIn")
     WebElement linkedInLink;
-
     @FindBy(css = "div.footer_copy")
     WebElement footerCopy;
 
-    public MenuPage()  {
+    public MenuPage() {
 
+    }
+
+    public boolean chceckLeftMenu() {
+        leftMenuButton.click();
+        Assertions.assertTrue(allItemsMenu.isDisplayed());
+        Assertions.assertTrue(aboutMenu.isDisplayed());
+        Assertions.assertTrue(logoutMenu.isDisplayed());
+        Assertions.assertTrue(resetAppStateMenu.isDisplayed());
+        return true;
     }
 
     public SauceLabsPage clickAboutMenu() {
@@ -52,13 +49,13 @@ public class MenuPage extends BasePage{
         return new SauceLabsPage();
     }
 
-    public LoginPage clickLogoutLink()  {
+    public LoginPage clickLogoutLink() {
         leftMenuButton.click();
         logoutMenu.click();
         return new LoginPage();
     }
 
-    public CartPage goToCart()  {
+    public CartPage goToCart() {
         cartLink.click();
         return new CartPage();
     }
@@ -67,7 +64,7 @@ public class MenuPage extends BasePage{
         return titleText.getText();
     }
 
-    public boolean checkMenuElements(){
+    public boolean checkMenuElements() {
         Assertions.assertTrue(footerCopy.isDisplayed());
         Assertions.assertTrue(linkedInLink.isDisplayed());
         Assertions.assertTrue(facebookLink.isDisplayed());

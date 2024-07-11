@@ -5,3 +5,4 @@ Feature: login in sauceShopDemo
     When Click loginButton
     Then user is on InventoryPage
     And Close broswer
+

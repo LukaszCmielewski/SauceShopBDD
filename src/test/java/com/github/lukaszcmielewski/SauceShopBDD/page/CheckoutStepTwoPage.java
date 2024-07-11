@@ -19,7 +19,7 @@ public class CheckoutStepTwoPage extends MenuPage {
     @FindBy(css = "div.inventory_item_price")
     List<WebElement> listPriceProductLabels;
 
-    public CheckoutStepTwoPage()  {
+    public CheckoutStepTwoPage() {
         super();
     }
 
@@ -27,7 +27,7 @@ public class CheckoutStepTwoPage extends MenuPage {
         return listProductLabels.size();
     }
 
-    public CheckoutCompletePage finishClick()  {
+    public CheckoutCompletePage finishClick() {
         finishButton.click();
         return new CheckoutCompletePage();
     }

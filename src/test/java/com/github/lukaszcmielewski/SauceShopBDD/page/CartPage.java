@@ -50,3 +50,4 @@ public class CartPage extends MenuPage {
         return true;
     }
 }
+

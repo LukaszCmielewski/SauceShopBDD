@@ -16,3 +16,4 @@ public class BasePage {
         driver.get("https://www.saucedemo.com/");
     }
 }
+

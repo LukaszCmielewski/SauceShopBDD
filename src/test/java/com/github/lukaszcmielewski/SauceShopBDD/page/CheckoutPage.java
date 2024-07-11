@@ -15,11 +15,11 @@ public class CheckoutPage extends MenuPage {
     @FindBy(id = "postal-code")
     WebElement postalCodeInput;
 
-    public CheckoutPage()  {
+    public CheckoutPage() {
         super();
     }
 
-    public CheckoutStepTwoPage checkoutClick(String fname, String lname, String postalCode)  {
+    public CheckoutStepTwoPage checkoutClick(String fname, String lname, String postalCode) {
         firstNameInput.sendKeys(fname);
         lastNameInput.sendKeys(lname);
         postalCodeInput.sendKeys(postalCode);
@@ -27,7 +27,7 @@ public class CheckoutPage extends MenuPage {
         return new CheckoutStepTwoPage();
     }
 
-    public CartPage cancelCheckout()  {
+    public CartPage cancelCheckout() {
         cancelButton.click();
         return new CartPage();
     }

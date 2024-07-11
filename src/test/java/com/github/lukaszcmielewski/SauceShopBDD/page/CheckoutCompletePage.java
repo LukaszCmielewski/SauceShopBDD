@@ -15,7 +15,7 @@ public class CheckoutCompletePage extends MenuPage {
     @FindBy(css = "img.pony_express")
     WebElement OkImg;
 
-    public CheckoutCompletePage()  {
+    public CheckoutCompletePage() {
         super();
     }
 

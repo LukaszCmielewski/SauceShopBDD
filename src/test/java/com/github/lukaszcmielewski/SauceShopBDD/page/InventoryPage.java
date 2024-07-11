@@ -1,6 +1,5 @@
 package com.github.lukaszcmielewski.SauceShopBDD.page;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.Random;
 
-public class InventoryPage extends MenuPage{
+public class InventoryPage extends MenuPage {
     @FindBy(id = "add-to-cart-sauce-labs-fleece-jacket")
     WebElement add2CartFleeceJacketButton;
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
@@ -46,9 +45,10 @@ public class InventoryPage extends MenuPage{
         PageFactory.initElements(driver, this);
     }
 
-    public boolean cartLinkIsDisplayed(){
+    public boolean cartLinkIsDisplayed() {
         return cartLink.isDisplayed();
     }
+
     public InventoryPage addFleeceJacketToCart() {
         add2CartBackpackButton.click();
         return this;
@@ -79,7 +79,7 @@ public class InventoryPage extends MenuPage{
         return this;
     }
 
-    public CartPage goToCart()  {
+    public CartPage goToCart() {
         shoppingCartLink.click();
         return new CartPage();
     }
