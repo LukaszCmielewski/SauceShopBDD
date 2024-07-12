@@ -50,7 +50,7 @@ public class InventoryPage extends MenuPage {
     }
 
     public InventoryPage addFleeceJacketToCart() {
-        add2CartBackpackButton.click();
+        add2CartFleeceJacketButton.click();
         return this;
     }
 
