@@ -26,6 +26,31 @@ public class InventoryPage extends MenuPage {
     WebElement removeBackpackButton;
     @FindBy(id = "remove-sauce-labs-bolt-t-shirt")
     WebElement removeBoltTShirtButton;
+
+    public boolean isRemoveFleeceJacketButton() {
+        return removeFleeceJacketButton.isEnabled();
+    }
+
+    public boolean isRemoveBackpackButton() {
+        return removeBackpackButton.isEnabled();
+    }
+
+    public boolean isRemoveBoltTShirtButton() {
+        return removeBoltTShirtButton.isEnabled();
+    }
+
+    public boolean isRemoveTShirtRedButton() {
+        return removeTShirtRedButton.isEnabled();
+    }
+
+    public boolean isRemoveBikeLightButton() {
+        return removeBikeLightButton.isEnabled();
+    }
+
+    public boolean isRemoveOnesieButton() {
+        return removeOnesieButton.isEnabled();
+    }
+
     @FindBy(id = "remove-test.allthethings()-t-shirt-(red)")
     WebElement removeTShirtRedButton;
     @FindBy(id = "remove-sauce-labs-bike-light")
