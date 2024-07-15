@@ -1,6 +1,8 @@
 package com.github.lukaszcmielewski.SauceShopBDD.integrationTest.tools;
 
 import com.github.lukaszcmielewski.SauceShopBDD.page.InventoryPage;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class InventoryTool {
     InventoryPage inventoryPage;
@@ -44,4 +46,6 @@ public class InventoryTool {
     public InventoryPage addOnesie() {
         return inventoryPage.addOnesieToCart();
     }
+
+
 }

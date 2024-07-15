@@ -14,6 +14,8 @@ public class LoginPage extends BasePage {
     private WebDriver driver;
     @FindBy(css = "h3")
     WebElement errorLabel;
+    @FindBy(css = "div.login_logo")
+    WebElement loginLogo;
 
     public LoginPage() {
 
@@ -43,5 +45,11 @@ public class LoginPage extends BasePage {
 
     public boolean errorLabelIsDisplayed(){
         return errorLabel.isDisplayed();
+    }
+
+    public boolean onLoginPage(){
+        System.out.println(loginLogo.getText());
+        System.out.println(loginLogo.getText().equals("Swag Labs"));
+        return loginLogo.getText().equals("Swag Labs");
     }
 }

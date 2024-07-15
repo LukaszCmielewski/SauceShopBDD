@@ -1,7 +1,6 @@
 package com.github.lukaszcmielewski.SauceShopBDD.integrationTest.tools;
 
-import com.github.lukaszcmielewski.SauceShopBDD.page.InventoryPage;
-import com.github.lukaszcmielewski.SauceShopBDD.page.LoginPage;
+import com.github.lukaszcmielewski.SauceShopBDD.page.*;
 import org.openqa.selenium.WebDriver;
 
 public class LoginTool {
