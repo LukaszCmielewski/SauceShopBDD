@@ -14,6 +14,16 @@ public class LoginTool {
 
 
     public InventoryPage login(String name, String pass) {
-        return new LoginPage().getLoginPage().insertLoginData(name, pass).clickLoginButton();
+        return new LoginPage()
+                .getLoginPage()
+                .insertLoginData(name, pass)
+                .clickLoginButton();
+    }
+
+    public InventoryPage login(){
+        return new LoginPage()
+                .getLoginPage()
+                .insertLoginData(LoginTool.standardUser, LoginTool.password)
+                .clickLoginButton();
     }
 }

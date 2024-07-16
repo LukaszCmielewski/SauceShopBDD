@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 public interface IMenu {
 
-    public void clickAboutMenu();
-    public void clickLogoutLink();
-    public void goToCart();
-    public void returnPageTitle();
-    public void checkMenuElements();
+    public void clickAboutMenuIMenu();
+    public void clickLogoutLinkIMenu();
+    public void goToCartIMenu();
+    public void returnPageTitleIMenu();
+    public void checkMenuElementsIMenu();
 }

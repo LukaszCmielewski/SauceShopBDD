@@ -48,8 +48,6 @@ public class LoginPage extends BasePage {
     }
 
     public boolean onLoginPage(){
-        System.out.println(loginLogo.getText());
-        System.out.println(loginLogo.getText().equals("Swag Labs"));
         return loginLogo.getText().equals("Swag Labs");
     }
 }

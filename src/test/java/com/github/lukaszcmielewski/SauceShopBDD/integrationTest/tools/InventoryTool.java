@@ -16,7 +16,7 @@ public class InventoryTool {
     }
 
     public static InventoryPage goToInventory() {
-        return new LoginTool().login("standard_user", "secret_sauce");
+        return new LoginTool().login(LoginTool.standardUser, LoginTool.password);
     }
 
     public InventoryPage goToInventory(String name, String pass) {

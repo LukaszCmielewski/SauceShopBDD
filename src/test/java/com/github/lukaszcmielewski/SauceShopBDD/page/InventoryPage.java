@@ -114,9 +114,7 @@ public class InventoryPage extends MenuPage {
         return this;
     }
 
-    public String returnTitle() {
-        return titleText.getText();
-    }
+
 
     public int getCartSize() {
         if (cartSize.size() > 0) {
@@ -129,6 +127,17 @@ public class InventoryPage extends MenuPage {
     public InventoryPage clickRandomProduct() {
         Random rand = new Random();
         listAddtoCartButtons.get(rand.nextInt(listAddtoCartButtons.size())).click();
+        return this;
+    }
+
+    public InventoryPage addRandomProduckts(int sizeOfCart){
+        Random rand = new Random();
+        int items=sizeOfCart;
+        while (items>0){
+            listAddtoCartButtons.get(rand.nextInt(listAddtoCartButtons.size())).click();
+            items--;
+        }
+        System.out.println(listRemoveButtons.size() +" : "+sizeOfCart);
         return this;
     }
 
