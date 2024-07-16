@@ -3,6 +3,9 @@ package com.github.lukaszcmielewski.SauceShopBDD.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CheckoutPage extends MenuPage {
     @FindBy(id = "continue")
     WebElement continueButton;
@@ -14,9 +17,19 @@ public class CheckoutPage extends MenuPage {
     WebElement lastNameInput;
     @FindBy(id = "postal-code")
     WebElement postalCodeInput;
+    @FindBy(css = "svg.error_icon")
+    List<WebElement> errorIconList;
+    @FindBy(tagName = "h3")
+    WebElement errorLabel;
+    public static List<String> errorLabels;
+
 
     public CheckoutPage() {
         super();
+        errorLabels=new ArrayList<>();
+        errorLabels.add("Error: First Name is required");
+        errorLabels.add("Error: Last Name is required");
+        errorLabels.add("Error: Postal Code is required");
     }
 
     public CheckoutStepTwoPage checkoutClick(String fname, String lname, String postalCode) {
@@ -26,9 +39,25 @@ public class CheckoutPage extends MenuPage {
         continueButton.click();
         return new CheckoutStepTwoPage();
     }
+    public CheckoutPage continueClick(String fname, String lname, String postalCode){
+        firstNameInput.sendKeys(fname);
+        lastNameInput.sendKeys(lname);
+        postalCodeInput.sendKeys(postalCode);
+        continueButton.click();
+        return this;
+
+    }
 
     public CartPage cancelCheckout() {
         cancelButton.click();
         return new CartPage();
+    }
+
+    public int returnSizeErrorIconList(){
+        return errorIconList.size();
+    }
+
+    public String returnErrorLabel(){
+        return errorLabel.getText();
     }
 }
