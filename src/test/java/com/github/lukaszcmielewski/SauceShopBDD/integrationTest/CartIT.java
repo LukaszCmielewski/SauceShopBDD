@@ -8,9 +8,23 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class CartIT extends Base implements IMenu {
     public CartPage page;
+    int sizeOfCart;
     @BeforeEach
     public void init() {
-        page = CartTool.goToCart(ThreadLocalRandom.current().nextInt(1, 6));
+        sizeOfCart=ThreadLocalRandom.current().nextInt(1, 6);
+        page = CartTool.goToCart(sizeOfCart);
+    }
+    @Test
+    public void chechCartSize(){
+        Assertions.assertEquals(sizeOfCart,page.getSizeOfCart());
+    }
+    @Test
+    public void continueShopping(){
+        Assertions.assertEquals("Products",page.continueShopping().returnPageTitle());
+    }
+    @Test
+    public void  goToCheckoutStepOne(){
+        Assertions.assertEquals("Checkout: Your Information",page.goToCheckout().returnPageTitle());
     }
 
 

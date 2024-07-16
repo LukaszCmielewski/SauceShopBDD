@@ -137,7 +137,7 @@ public class InventoryPage extends MenuPage {
             listAddtoCartButtons.get(rand.nextInt(listAddtoCartButtons.size())).click();
             items--;
         }
-        System.out.println(listRemoveButtons.size() +" : "+sizeOfCart);
+        //System.out.println(listRemoveButtons.size() +" : "+sizeOfCart);
         return this;
     }
 

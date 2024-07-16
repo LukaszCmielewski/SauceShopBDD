@@ -8,6 +8,6 @@ public class CartTool {
         page=new CartPage();
     }
     public static CartPage goToCart(int sizeOfCart){
-        return new LoginTool().login().addRandomProduckts(sizeOfCart).goToCart();
+        return new InventoryTool().goToInventory().addRandomProduckts(sizeOfCart).goToCart();
     }
 }
