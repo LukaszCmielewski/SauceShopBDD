@@ -26,6 +26,24 @@ public class InventoryPage extends MenuPage {
     WebElement removeBackpackButton;
     @FindBy(id = "remove-sauce-labs-bolt-t-shirt")
     WebElement removeBoltTShirtButton;
+    @FindBy(id = "remove-test.allthethings()-t-shirt-(red)")
+    WebElement removeTShirtRedButton;
+    @FindBy(id = "remove-sauce-labs-bike-light")
+    WebElement removeBikeLightButton;
+    @FindBy(id = "remove-sauce-labs-onesie")
+    WebElement removeOnesieButton;
+    @FindBy(css = ".inventory_item button.btn_secondary")
+    List<WebElement> listRemoveButtons;
+    @FindBy(css = ".inventory_item button.btn_primary")
+    List<WebElement> listAddtoCartButtons;
+    @FindBy(css = "span.shopping_cart_badge")
+    List<WebElement> cartSize;
+    @FindBy(css = "a.shopping_cart_link")
+    WebElement shoppingCartLink;
+
+    public InventoryPage() {
+        PageFactory.initElements(driver, this);
+    }
 
     public boolean isRemoveFleeceJacketButton() {
         return removeFleeceJacketButton.isEnabled();
@@ -49,25 +67,6 @@ public class InventoryPage extends MenuPage {
 
     public boolean isRemoveOnesieButton() {
         return removeOnesieButton.isEnabled();
-    }
-
-    @FindBy(id = "remove-test.allthethings()-t-shirt-(red)")
-    WebElement removeTShirtRedButton;
-    @FindBy(id = "remove-sauce-labs-bike-light")
-    WebElement removeBikeLightButton;
-    @FindBy(id = "remove-sauce-labs-onesie")
-    WebElement removeOnesieButton;
-    @FindBy(css = ".inventory_item button.btn_secondary")
-    List<WebElement> listRemoveButtons;
-    @FindBy(css = ".inventory_item button.btn_primary")
-    List<WebElement> listAddtoCartButtons;
-    @FindBy(css = "span.shopping_cart_badge")
-    List<WebElement> cartSize;
-    @FindBy(css = "a.shopping_cart_link")
-    WebElement shoppingCartLink;
-
-    public InventoryPage() {
-        PageFactory.initElements(driver, this);
     }
 
     public boolean cartLinkIsDisplayed() {
@@ -114,8 +113,6 @@ public class InventoryPage extends MenuPage {
         return this;
     }
 
-
-
     public int getCartSize() {
         if (cartSize.size() > 0) {
             return Integer.parseInt(cartSize.getFirst().getText());
@@ -130,21 +127,19 @@ public class InventoryPage extends MenuPage {
         return this;
     }
 
-    public InventoryPage addRandomProduckts(int sizeOfCart){
+    public InventoryPage addRandomProduckts(int sizeOfCart) {
         Random rand = new Random();
-        int items=sizeOfCart;
-        while (items>0){
+        int items = sizeOfCart;
+        while (items > 0) {
             listAddtoCartButtons.get(rand.nextInt(listAddtoCartButtons.size())).click();
             items--;
         }
-        //System.out.println(listRemoveButtons.size() +" : "+sizeOfCart);
         return this;
     }
 
-    public InventoryPage clickRemoveButtons() {
+    public void clickRemoveButtons() {
         listRemoveButtons.forEach((btn) -> {
             btn.click();
         });
-        return this;
     }
 }

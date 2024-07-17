@@ -4,10 +4,15 @@ import com.github.lukaszcmielewski.SauceShopBDD.page.CartPage;
 
 public class CartTool {
     CartPage page;
-    public CartTool(){
-        page=new CartPage();
+
+    public CartTool() {
+        page = new CartPage();
     }
-    public static CartPage goToCart(int sizeOfCart){
-        return new InventoryTool().goToInventory().addRandomProduckts(sizeOfCart).goToCart();
+
+    public static CartPage goToCart(int sizeOfCart) {
+        return new InventoryTool()
+                .goToInventory()
+                .addRandomProduckts(sizeOfCart)
+                .goToCart();
     }
 }

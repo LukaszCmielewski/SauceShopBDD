@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutPage extends MenuPage {
+    public static List<String> errorLabels;
     @FindBy(id = "continue")
     WebElement continueButton;
     @FindBy(id = "cancel")
@@ -21,12 +22,10 @@ public class CheckoutPage extends MenuPage {
     List<WebElement> errorIconList;
     @FindBy(tagName = "h3")
     WebElement errorLabel;
-    public static List<String> errorLabels;
-
 
     public CheckoutPage() {
         super();
-        errorLabels=new ArrayList<>();
+        errorLabels = new ArrayList<>();
         errorLabels.add("Error: First Name is required");
         errorLabels.add("Error: Last Name is required");
         errorLabels.add("Error: Postal Code is required");
@@ -39,13 +38,12 @@ public class CheckoutPage extends MenuPage {
         continueButton.click();
         return new CheckoutStepTwoPage();
     }
-    public CheckoutPage continueClick(String fname, String lname, String postalCode){
+
+    public void continueClick(String fname, String lname, String postalCode) {
         firstNameInput.sendKeys(fname);
         lastNameInput.sendKeys(lname);
         postalCodeInput.sendKeys(postalCode);
         continueButton.click();
-        return this;
-
     }
 
     public CartPage cancelCheckout() {
@@ -53,11 +51,11 @@ public class CheckoutPage extends MenuPage {
         return new CartPage();
     }
 
-    public int returnSizeErrorIconList(){
+    public int returnSizeErrorIconList() {
         return errorIconList.size();
     }
 
-    public String returnErrorLabel(){
+    public String returnErrorLabel() {
         return errorLabel.getText();
     }
 }

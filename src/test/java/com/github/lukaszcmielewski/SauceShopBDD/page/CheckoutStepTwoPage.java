@@ -23,6 +23,15 @@ public class CheckoutStepTwoPage extends MenuPage {
         super();
     }
 
+    public int getAmountOfPrices() {
+        return listPriceProductLabels.size();
+    }
+
+    public CheckoutPage goToCheckoutStepOnePage(int sizeOfCart) {
+        cancelButton.click();
+        return new CheckoutPage();
+    }
+
     public int getSizeOfProducts() {
         return listProductLabels.size();
     }
@@ -30,5 +39,12 @@ public class CheckoutStepTwoPage extends MenuPage {
     public CheckoutCompletePage finishClick() {
         finishButton.click();
         return new CheckoutCompletePage();
+    }
+
+    public boolean checkDisplayedWebElements() {
+        return (finishButton.isDisplayed()
+                && cancelButton.isDisplayed()
+                && totalPriceLabel.isDisplayed()
+                && totalTaxLabel.isDisplayed());
     }
 }
