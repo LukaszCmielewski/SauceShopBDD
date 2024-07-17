@@ -5,8 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class CheckoutCompletePage extends MenuPage {
     @FindBy(id = "back-to-products")
-    WebElement backInventory;
-    @FindBy(id = "back-to-products")
     WebElement backHomeButton; //back to Inventory
     @FindBy(css = "h2.complete-header")
     WebElement completeHeaderLabel;
@@ -22,5 +20,17 @@ public class CheckoutCompletePage extends MenuPage {
     public InventoryPage backHome() {
         backHomeButton.click();
         return new InventoryPage();
+    }
+    public String returnCompleteHeader(){
+        return completeHeaderLabel.getText();
+    }
+    public String returnCompleteText(){
+        return completeTextLabel.getText();
+    }
+    public boolean checkDisplayedElements(){
+        return (backHomeButton.isDisplayed()&&
+                completeHeaderLabel.isDisplayed()&&
+                completeTextLabel.isDisplayed()&&
+                OkImg.isDisplayed());
     }
 }
