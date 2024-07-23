@@ -42,5 +42,10 @@ public class LoginStepdefs {
     public void closeBroswer() {
         DriverFactory.quitDriver();
     }
+
+    @And("When I enter Username as {string} and Password")
+    public void whenIEnterUsernameAsAndPassword(String arg0) {
+        loginPage.insertLoginData(arg0, "secret_sauce");
+    }
 }
 
