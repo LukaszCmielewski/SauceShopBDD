@@ -38,7 +38,7 @@ public class LoginStepdefs {
         Assertions.assertTrue(inventoryPage.cartLinkIsDisplayed());
     }
 
-    @And("Close broswer")
+    @And("Close browser")
     public void closeBroswer() {
         DriverFactory.quitDriver();
     }
@@ -46,6 +46,26 @@ public class LoginStepdefs {
     @And("When I enter Username as {string} and Password")
     public void whenIEnterUsernameAsAndPassword(String arg0) {
         loginPage.insertLoginData(arg0, "secret_sauce");
+    }
+
+    @And("When I enter locked_out_user and password")
+    public void whenIEneterLocked_out_userAndPassword() {
+        loginPage.insertLoginData("locked_out_user", "secret_sauce");
+    }
+
+    @When("Click login button")
+    public void clickLoginButtonFailed() {
+        loginPage.failedLogin();
+    }
+
+    @And("When I enter {string} and {string}")
+    public void whenIEnterAnd(String loginProblem, String password) {
+        loginPage.insertLoginData(loginProblem, password);
+    }
+
+    @Then("Check messege {string}")
+    public void checkMessege(String errorMessage) {
+        Assertions.assertEquals(errorMessage,loginPage.getErrorMessage());
     }
 }
 

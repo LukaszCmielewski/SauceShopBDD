@@ -37,6 +37,10 @@ public class LoginPage extends BasePage {
         loginButton.click();
         return this;
     }
+    public LoginPage failedLogin() {
+        loginButton.click();
+        return this;
+    }
 
     public LoginPage getLoginPage() {
         goTo("https://www.saucedemo.com/");
@@ -49,5 +53,9 @@ public class LoginPage extends BasePage {
 
     public boolean onLoginPage(){
         return loginLogo.getText().equals("Swag Labs");
+    }
+
+    public String getErrorMessage(){
+        return errorLabel.getText();
     }
 }
