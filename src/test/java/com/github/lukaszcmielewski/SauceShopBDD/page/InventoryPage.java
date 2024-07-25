@@ -40,6 +40,8 @@ public class InventoryPage extends MenuPage {
     List<WebElement> cartSize;
     @FindBy(css = "a.shopping_cart_link")
     WebElement shoppingCartLink;
+    @FindBy(css = "img.inventory_item_img")
+    List<WebElement> imgList;
 
     public InventoryPage() {
         PageFactory.initElements(driver, this);
@@ -141,5 +143,15 @@ public class InventoryPage extends MenuPage {
         listRemoveButtons.forEach((btn) -> {
             btn.click();
         });
+    }
+
+    public boolean checkAllImageSrcIsCorrect() {
+        String inCorrectScr = "https://www.saucedemo.com/static/media/sl-404.168b1cce.jpg";
+        for (int i = 0; i < imgList.size(); i++) {
+            if (imgList.get(i).getAttribute("src").equals(inCorrectScr)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
